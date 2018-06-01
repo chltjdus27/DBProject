@@ -65,10 +65,27 @@
             android:layout_height="wrap_content"
             android:text="성별"/>
 
-        <EditText
-            android:id="@+id/sex"
+        <RadioGroup
+            android:id="@+id/radioGroup"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/rb_male"
+                android:text="남자"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"/>
+
+            <RadioButton
+                android:id="@+id/rb_female"
+                android:text="여자"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </RadioGroup>
+
     </LinearLayout>
 
     <LinearLayout
@@ -83,7 +100,9 @@
             android:layout_height="wrap_content"
             android:text="가입"
             android:onClick="insert"/>
+
         <Button
+            android:id="@+id/btn_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="취소"/>

@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -28,7 +30,8 @@ import java.net.URLEncoder;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    private EditText id, pw, name, sex;
+    private EditText id, pw, name;
+    private RadioGroup radioGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,17 +41,36 @@ public class SignUpActivity extends AppCompatActivity {
         id = findViewById(R.id.id);
         pw = findViewById(R.id.passwd);
         name = findViewById(R.id.name);
-        sex = findViewById(R.id.sex);
+
+        radioGroup = (RadioGroup)findViewById(R.id.radioGroup);
+
+        findViewById(R.id.btn_cancel).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                id.setText("");
+                pw.setText("");
+                name.setText("");
+            }
+        });
 
     }
     public void insert(View view) {
         String userId = id.getText().toString();
         String userPw = pw.getText().toString();
         String userName = name.getText().toString();
-        String userSex = sex.getText().toString();
+        String userSex = null;
+
+        int id = radioGroup.getCheckedRadioButtonId();
+        RadioButton radioButton = (RadioButton)findViewById(id);
+        if(radioButton.getText().toString().equals("남자")){
+            userSex = "m";
+        }else{
+            userSex = "f";
+        }
 
         insertToDatabase(userId, userPw, userName, userSex);
     }
+
     private void insertToDatabase(String userId, String userPw, String userName, String userSex) {
         class InsertData extends AsyncTask<String, Void, String> {
             ProgressDialog loading;

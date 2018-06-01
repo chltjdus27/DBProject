@@ -2,6 +2,7 @@ package com.example.seoyeon.wiki_media;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Looper;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
@@ -37,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
     private HttpClient httpclient;
     private List<NameValuePair> nameValuePairs;
     private ProgressDialog dialog = null;
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,8 @@ public class LoginActivity extends AppCompatActivity {
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
+
+        sharedPreferences = getSharedPreferences("sPrefs", MODE_PRIVATE);
 
         userId = (EditText)findViewById(R.id.userId);
         userPw = (EditText)findViewById(R.id.userPw);
@@ -100,6 +104,11 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this, "Welcome!", Toast.LENGTH_SHORT).show();
                             }
                         });
+
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("sessionId", userId.getText().toString());
+                        editor.commit();
+
                         startActivity((new Intent(LoginActivity.this, MainActivity.class)));
                         finish();
 
