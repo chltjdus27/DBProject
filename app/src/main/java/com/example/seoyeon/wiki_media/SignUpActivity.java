@@ -3,9 +3,11 @@ package com.example.seoyeon.wiki_media;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -37,6 +39,13 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+
+        Toolbar toolbar = (Toolbar)findViewById(R.id.signUp_toolbar);
+        setSupportActionBar(toolbar);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowCustomEnabled(true); //커스터마이징 하기 위해 필요
+        actionBar.setDisplayShowTitleEnabled(false);
 
         id = findViewById(R.id.id);
         pw = findViewById(R.id.passwd);

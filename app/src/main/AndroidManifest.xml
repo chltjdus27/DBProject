@@ -19,7 +19,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignUpActivity" />
+        <activity android:name=".SignUpActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
         <activity android:name=".MyMusicActivity" />
         <activity android:name=".GroupMusicActivity" />
         <activity android:name=".HomeActivity"></activity>

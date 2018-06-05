@@ -7,9 +7,11 @@ import android.os.Looper;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.apache.http.HttpEntity;
@@ -33,6 +35,7 @@ import java.util.List;
 public class LoginActivity extends AppCompatActivity {
 
     private EditText userId ,userPw;
+    private TextView btn_signUp;
     private HttpPost httpPost;
     private HttpResponse response;
     private HttpClient httpclient;
@@ -52,6 +55,10 @@ public class LoginActivity extends AppCompatActivity {
 
         userId = (EditText)findViewById(R.id.userId);
         userPw = (EditText)findViewById(R.id.userPw);
+        btn_signUp = (TextView)findViewById(R.id.btn_signUp);
+
+        String str = "회원가입";
+        btn_signUp.setText(Html.fromHtml("<u>" + str + "</u>"));
 
         findViewById(R.id.btn_login).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.btn_signUp).setOnClickListener(new View.OnClickListener() {
+        btn_signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);

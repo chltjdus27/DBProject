@@ -7,105 +7,121 @@
     android:orientation="vertical"
     tools:context="com.example.seoyeon.wiki_media.SignUpActivity">
 
-    <LinearLayout
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/signUp_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/colorPrimaryDark">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ID"/>
+            android:text="회원가입"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="30dp">
         <EditText
             android:id="@+id/id"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="PW"/>
+            android:drawableLeft="@drawable/ic_person_outline_black_24dp"
+            android:hint="아이디"
+            android:layout_marginBottom="5dp"/>
 
         <EditText
             android:id="@+id/passwd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="이름"/>
+            android:drawableLeft="@drawable/ic_https_black_24dp"
+            android:hint="비밀번호"
+            android:layout_marginBottom="5dp"/>
 
         <EditText
             android:id="@+id/name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="성별"/>
+            android:drawableLeft="@drawable/ic_sentiment_satisfied_black_24dp"
+            android:hint="이름"
+            android:layout_marginBottom="10dp"/>
 
-        <RadioGroup
-            android:id="@+id/radioGroup"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <RadioButton
-                android:id="@+id/rb_male"
-                android:text="남자"
+
+            <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:checked="true"/>
+                android:text="성별"
+                android:textSize="20sp"
+                android:paddingLeft="3dp"
+                android:layout_gravity="center"/>
 
-            <RadioButton
-                android:id="@+id/rb_female"
-                android:text="여자"
+            <RadioGroup
+                android:id="@+id/radioGroup"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
-        </RadioGroup>
+                android:layout_weight="5"
+                android:orientation="horizontal">
 
-    </LinearLayout>
+                <RadioButton
+                    android:id="@+id/rb_male"
+                    android:text="남자"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:buttonTint="#008275"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
+                <RadioButton
+                    android:id="@+id/rb_female"
+                    android:text="여자"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:buttonTint="#008275"/>
+            </RadioGroup>
 
-        <Button
-            android:id="@+id/btn_register"
-            android:layout_width="wrap_content"
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="가입"
-            android:onClick="insert"/>
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="15dp">
 
-        <Button
-            android:id="@+id/btn_cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="취소"/>
+            <Button
+                android:id="@+id/btn_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="가입"
+                android:onClick="insert"
+                android:background="#00A495"
+                android:textColor="#ffffff"
+                android:layout_marginRight="10dp"/>
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="취소"
+                android:background="#e2e2e2"/>
+        </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>
