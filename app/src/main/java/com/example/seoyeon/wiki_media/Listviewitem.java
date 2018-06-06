@@ -1,17 +1,20 @@
 package com.example.seoyeon.wiki_media;
 
-import android.graphics.drawable.Drawable;
-
 public class Listviewitem {
-    private Drawable iconDrawable;
-    private String titleStr;
-    private String descStr;
+    private int idMusic;
+    private String title;
+    private String Singer;
+    private String url;
 
-    public void setIcon(Drawable icon){iconDrawable = icon;}
-    public void setTitle(String title){titleStr = title;}
-    public void setDesc(String desc) {descStr = desc;}
+    public void setUrl(String Url) {Url = Url;}
+    public void setidMusic(int idMusic) {idMusic = idMusic;}
+    public void setTitle(String title){title = title;}
+    public void setSinger(String singer) {Singer = singer;}
 
-    public Drawable getIcon() {return this.iconDrawable;}
-    public String getTitle() {return this.titleStr;}
-    public String getDesc() {return this.descStr;}
+    public String getUrl() {return this.url;}
+    public int getIdMusic() {return this.idMusic;}
+    public String getTitle() {return this.title;}
+    public String getDesc() {return this.Singer;}
+
+
 }

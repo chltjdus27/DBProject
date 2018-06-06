@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.seoyeon.wiki_media.GroupDetailActivity"
+    android:background="#ffffff">
+
+    <LinearLayout
+        android:id="@+id/layout_groupDetail"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        android:gravity="bottom">
+
+        <TextView
+            android:id="@+id/tv_groupTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            >
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/man"
+                android:layout_marginRight="10dp"/>
+
+            <TextView
+                android:id="@+id/tv_superUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#ffffff"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TabHost
+        android:id="@android:id/tabhost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingTop="10dp"
+            android:background="@drawable/tabwiget_bg"/>
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:id="@+id/tab1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="3dp"
+                        android:gravity="end">
+                        <TextView
+                            android:id="@+id/btn_addMusic"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="추가"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="20sp"
+                            android:layout_marginRight="10dp"
+                            android:visibility="gone"/>
+
+                        <TextView
+                            android:id="@+id/btn_join"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="참여하기"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="20sp"
+                            android:layout_marginRight="10dp"/>
+
+                    </LinearLayout>
+
+                    <ListView
+                        android:id="@+id/lv_groupMusic"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    </ListView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ListView
+                        android:id="@+id/lv_groupMember"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"></ListView>
+
+                </LinearLayout>
+            </FrameLayout>
+
+
+        </LinearLayout>
+    </TabHost>
+
+</LinearLayout>

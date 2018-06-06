@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -70,7 +71,7 @@ public class MusicListAdapter extends BaseAdapter{
         ImageView btnAdd = (ImageView)convertView.findViewById(R.id.btn_add);
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
-        Music listViewItem = musicList.get(position);
+        final Music listViewItem = musicList.get(position);
 
         String url = listViewItem.getUrl();
         final String musicId = url.split("=")[1];
@@ -109,6 +110,14 @@ public class MusicListAdapter extends BaseAdapter{
 
         btnAdd.setTag(position);
         btnAdd.setOnClickListener(mClickListener);
+
+        btnPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(listViewItem.getUrl()));
+                context.startActivity(intent);
+            }
+        });
 
         return convertView;
     }
